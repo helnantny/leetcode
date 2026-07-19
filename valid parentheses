@@ -1,0 +1,21 @@
+class Solution:
+    def isValid(self, s: str) -> bool:
+        se=[]
+        for i in range(len(s)):
+            if s[i]=='(' or s[i]=='{' or s[i]=='[':
+                se.append(s[i])
+            else:
+                if not se:
+                    return False
+
+                t=se.pop()
+                if s[i]==')' and t!='(':
+                    return False
+                if s[i]=='}' and t!='{':
+                    return False
+                if s[i]==']'  and t!='[':
+                    return False
+        return not se
+        
+
+
